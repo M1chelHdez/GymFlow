@@ -1,0 +1,1 @@
+package com.gymflow.inventory;import jakarta.validation.constraints.*;import java.util.UUID;public record StockMovementRequest(@NotNull UUID productId,@NotNull MovementType type,@Min(1) @Max(1000000) int quantity,@Size(max=250) String reason){}

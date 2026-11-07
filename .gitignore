@@ -1,0 +1,30 @@
+# Environment and secrets
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+
+# Java / Maven
+**/target/
+*.class
+*.jar
+
+# Node / Angular
+**/node_modules/
+**/dist/
+**/.angular/
+**/coverage/
+
+# IDEs and OS
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Logs and temporary files
+*.log
+*.tmp
+*.swp

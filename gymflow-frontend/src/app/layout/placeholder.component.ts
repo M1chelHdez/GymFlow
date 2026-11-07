@@ -1,0 +1,4 @@
+import { Component, inject } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+@Component({selector:'app-placeholder',standalone:true,template:`<section class="page-content simple-page"><p class="eyebrow">GYMFLOW MANAGEMENT</p><div class="simple-heading"><div><h1>{{ title }}</h1><p class="page-subtitle">{{ description }}</p></div></div><div class="panel empty-state"><span class="empty-icon">✦</span><h2>Módulo en desarrollo</h2><p>Esta sección forma parte del alcance de GymFlow. La iremos conectando con sus entidades y servicios del backend, manteniendo la misma estructura y diseño.</p></div></section>`})
+export class PlaceholderComponent { private route=inject(ActivatedRoute); title=this.route.snapshot.data['title'] as string; description=this.route.snapshot.data['description'] as string; }

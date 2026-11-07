@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: gymflow-backend
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/gymflow}
+    username: ${DB_USERNAME:gymflow}
+    password: ${DB_PASSWORD:gymflow_dev}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+  flyway:
+    enabled: true
+  security:
+    user:
+      name: ${GYMFLOW_DEV_USER:devadmin}
+      password: ${GYMFLOW_DEV_PASSWORD:ChangeMe-OnlyForLocal!}
+server:
+  port: ${PORT:8080}
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html

@@ -1,0 +1,4 @@
+package com.gymflow.category;
+import com.gymflow.gym.Gym; import jakarta.persistence.*; import java.util.UUID;
+@Entity @Table(name="product_categories",uniqueConstraints=@UniqueConstraint(name="uk_category_gym_name",columnNames={"gym_id","name"}))
+public class Category { @Id @GeneratedValue(strategy=GenerationType.UUID) private UUID id; @ManyToOne(fetch=FetchType.LAZY,optional=false) @JoinColumn(name="gym_id",nullable=false) private Gym gym; @Column(nullable=false,length=80) private String name; @Column(length=300) private String description; @Column(nullable=false) private boolean active=true; protected Category(){} public Category(Gym gym,String name,String description){this.gym=gym;this.name=name;this.description=description;} public UUID getId(){return id;}public Gym getGym(){return gym;}public String getName(){return name;}public String getDescription(){return description;}public boolean isActive(){return active;} }

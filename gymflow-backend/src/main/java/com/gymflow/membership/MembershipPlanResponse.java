@@ -1,0 +1,2 @@
+package com.gymflow.membership; import java.math.BigDecimal; import java.time.Instant; import java.util.UUID;
+public record MembershipPlanResponse(UUID id,UUID gymId,String name,String description,int durationValue,DurationUnit durationUnit,BigDecimal price,PlanStatus status,Instant createdAt){static MembershipPlanResponse from(MembershipPlan p){return new MembershipPlanResponse(p.getId(),p.getGym().getId(),p.getName(),p.getDescription(),p.getDurationValue(),p.getDurationUnit(),p.getPrice(),p.getStatus(),p.getCreatedAt());}}

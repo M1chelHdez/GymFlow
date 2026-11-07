@@ -1,0 +1,30 @@
+@if (router.url.startsWith('/login')) { <router-outlet /> } @else {
+<div class="app-shell">
+  <aside class="sidebar" [class.sidebar-open]="sidebarOpen">
+    <a class="brand" routerLink="/" (click)="sidebarOpen = false">
+      <span class="brand-mark">G<span>F</span></span>
+      <span class="brand-copy"><strong>GymFlow</strong><small>GYM MANAGEMENT</small></span>
+    </a>
+    <div class="gym-switcher"><span class="gym-avatar">GF</span><span class="gym-name"><strong>GymFlow Demo</strong><small>Plan administrador</small></span><span class="chevron">⌄</span></div>
+    <nav aria-label="Navegación principal">
+      @for (group of navigation; track group.label) {
+        <div class="nav-group"><p class="nav-heading">{{ group.label }}</p>
+          @for (item of group.items; track item.path) {
+            <a class="nav-item" [routerLink]="item.path" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: item.path === '/' }" (click)="sidebarOpen = false">
+              <span class="nav-icon">{{ item.icon }}</span><span>{{ item.label }}</span>
+              @if (item.label === 'Socios') { <span class="nav-count">248</span> }
+            </a>
+          }
+        </div>
+      }
+    </nav>
+    <div class="sidebar-bottom"><div class="help-card"><span class="help-icon">✦</span><strong>¿Necesitas ayuda?</strong><p>Consulta la guía rápida de GymFlow.</p><a href="mailto:soporte@gymflow.example">Centro de ayuda <span>↗</span></a></div><div class="user-profile"><div class="user-avatar">AM</div><div class="user-copy"><strong>Alex Martínez</strong><small>Administrador</small></div><button aria-label="Cerrar sesión" title="Cerrar sesión" class="more-button" (click)="logout()">↪</button></div></div>
+  </aside>
+  @if (sidebarOpen) { <button class="mobile-scrim" aria-label="Cerrar menú" (click)="sidebarOpen = false"></button> }
+  <main class="main-area">
+    <header class="topbar"><button class="menu-toggle" aria-label="Abrir menú" (click)="sidebarOpen = !sidebarOpen">☰</button><div class="breadcrumb"><span>GymFlow</span><span class="crumb-slash">/</span><strong>Panel de control</strong></div><div class="topbar-actions"><span class="today-label">JUEVES, 24 OCT</span><button class="icon-button" aria-label="Notificaciones">♧<i></i></button><div class="top-avatar">AM</div></div></header>
+    <router-outlet />
+    <footer class="app-footer"><span>© 2026 GymFlow</span><span>Hecho para moverte mejor <b>●</b></span></footer>
+  </main>
+</div>
+}

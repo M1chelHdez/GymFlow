@@ -1,0 +1,1 @@
+package com.gymflow.category; import java.util.UUID; public record CategoryResponse(UUID id,UUID gymId,String name,String description,boolean active){static CategoryResponse from(Category c){return new CategoryResponse(c.getId(),c.getGym().getId(),c.getName(),c.getDescription(),c.isActive());}}

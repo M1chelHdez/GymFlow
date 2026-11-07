@@ -1,0 +1,1 @@
+package com.gymflow.supplier;import java.util.UUID;public record SupplierResponse(UUID id,UUID gymId,String name,String email,String phone,String notes,boolean active){static SupplierResponse from(Supplier s){return new SupplierResponse(s.getId(),s.getGym().getId(),s.getName(),s.getEmail(),s.getPhone(),s.getNotes(),s.isActive());}}

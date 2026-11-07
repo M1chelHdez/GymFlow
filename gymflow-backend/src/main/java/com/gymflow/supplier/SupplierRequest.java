@@ -1,0 +1,1 @@
+package com.gymflow.supplier;import jakarta.validation.constraints.*;public record SupplierRequest(@NotBlank @Size(max=120)String name,@Email @Size(max=180)String email,@Size(max=30)String phone,@Size(max=300)String notes){}
